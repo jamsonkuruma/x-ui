@@ -1,23 +1,26 @@
 {{define "inboundModal"}}
-<a-modal id="inbound-modal" v-model="inModal.visible" :title="inModal.title" @ok="inModal.ok"
-         :confirm-loading="inModal.confirmLoading" :closable="true" :mask-closable="false"
-         :ok-text="inModal.okText" cancel-text='{{ i18n "close" }}'>
+<a-modal id="inbound-modal" v-model="inModal.visible" :title="inModal.title" @ok="inModal.ok" :confirm-loading="inModal.confirmLoading" :closable="true" :mask-closable="false" :ok-text="inModal.okText" cancel-text='{{ i18n "close" }}'>
     {{template "form/inbound"}}
 </a-modal>
 <script>
-
     const inModal = {
         title: '',
         visible: false,
         confirmLoading: false,
-        okText: '确定',
+        okText: 'Sure',
         confirm: null,
         inbound: new Inbound(),
         dbInbound: new DBInbound(),
         ok() {
             ObjectUtil.execute(inModal.confirm, inModal.inbound, inModal.dbInbound);
         },
-        show({ title='', okText='确定', inbound=null, dbInbound=null, confirm=(inbound, dbInbound)=>{} }) {
+        show({
+            title = '',
+            okText = 'Sure',
+            inbound = null,
+            dbInbound = null,
+            confirm = (inbound, dbInbound) => {}
+        }) {
             this.title = title;
             this.okText = okText;
             if (inbound) {
@@ -74,6 +77,5 @@
             }
         }
     });
-
 </script>
 {{end}}

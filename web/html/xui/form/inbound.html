@@ -14,10 +14,10 @@
     </a-form-item>
     <a-form-item>
         <span slot="label">
-            监听 IP
+            Listening to IP
             <a-tooltip>
                 <template slot="title">
-                    默认留空即可
+                    The default is left blank
                 </template>
                 <a-icon type="question-circle" theme="filled"></a-icon>
             </a-tooltip>
@@ -29,10 +29,10 @@
     </a-form-item>
     <a-form-item>
         <span slot="label">
-            总流量(GB)
+            Total flow (GB)
             <a-tooltip>
                 <template slot="title">
-                    0 表示不限制
+                    0 means no limit
                 </template>
                 <a-icon type="question-circle" theme="filled"></a-icon>
             </a-tooltip>
@@ -41,16 +41,15 @@
     </a-form-item>
     <a-form-item>
         <span slot="label">
-            到期时间
+            Expire date
             <a-tooltip>
                 <template slot="title">
-                    留空则永不到期
+                    Leave blank, never expires
                 </template>
                 <a-icon type="question-circle" theme="filled"></a-icon>
             </a-tooltip>
         </span>
-        <a-date-picker :show-time="{ format: 'HH:mm' }" format="YYYY-MM-DD HH:mm"
-                       v-model="dbInbound._expiryTime" style="width: 300px;"></a-date-picker>
+        <a-date-picker :show-time="{ format: 'HH:mm' }" format="YYYY-MM-DD HH:mm" v-model="dbInbound._expiryTime" style="width: 300px;"></a-date-picker>
     </a-form-item>
 </a-form>
 
@@ -102,5 +101,4 @@
 <!-- sniffing -->
 <template v-if="inbound.canSniffing()">
     {{template "form/sniffing"}}
-</template>
-{{end}}
+</template> {{end}}

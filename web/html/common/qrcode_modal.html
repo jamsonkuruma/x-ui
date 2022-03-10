@@ -1,12 +1,9 @@
 {{define "qrcodeModal"}}
-<a-modal id="qrcode-modal" v-model="qrModal.visible" :title="qrModal.title"
-         :closable="true" width="300px" :ok-text="qrModal.okText"
-         cancel-text='{{ i18n "close" }}' :ok-button-props="{attrs:{id:'qr-modal-ok-btn'}}">
+<a-modal id="qrcode-modal" v-model="qrModal.visible" :title="qrModal.title" :closable="true" width="300px" :ok-text="qrModal.okText" cancel-text='{{ i18n "close" }}' :ok-button-props="{attrs:{id:'qr-modal-ok-btn'}}">
     <canvas id="qrCode" style="width: 100%; height: 100%;"></canvas>
 </a-modal>
 
 <script>
-
     const qrModal = {
         title: '',
         content: '',
@@ -15,7 +12,7 @@
         qrcode: null,
         clipboard: null,
         visible: false,
-        show: function (title='', content='', okText='{{ i18n "copy" }}', copyText='') {
+        show: function(title = '', content = '', okText = '{{ i18n "copy" }}', copyText = '') {
             this.title = title;
             this.content = content;
             this.okText = okText;
@@ -43,7 +40,7 @@
                 }
             });
         },
-        close: function () {
+        close: function() {
             this.visible = false;
         },
     };
@@ -54,6 +51,5 @@
             qrModal: qrModal,
         },
     });
-
 </script>
 {{end}}
